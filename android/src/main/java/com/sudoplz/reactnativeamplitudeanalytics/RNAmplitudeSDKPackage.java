@@ -1,6 +1,5 @@
 package com.sudoplz.reactnativeamplitudeanalytics;
 
-import android.app.Activity;
 import android.app.Application;
 
 import com.facebook.react.ReactPackage;
@@ -13,7 +12,7 @@ import java.util.*;
 
 public class RNAmplitudeSDKPackage implements ReactPackage {
 
-    private Application mApplication = null;
+    private Application mApplication;
 
     public RNAmplitudeSDKPackage(Application application) {
         mApplication = application;
