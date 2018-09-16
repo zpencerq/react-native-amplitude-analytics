@@ -88,40 +88,44 @@ class Amplitude {
   // --------------------------------------------------
   // Track
   // --------------------------------------------------
-
-  logEvent(name, properties) {
+  logEvent(name, properties, options) {
     if (amplitudeHasInitialized) {
       var eventName = this.evPrefix ? this.evPrefix + name : name;
-      if (properties) {
-        return RNAmplitudeSDK.logEventWithProps(eventName, properties);
-      } else {
-        return RNAmplitudeSDK.logEvent(eventName);
-      }
+      return RNAmplitudeSDK.logEvent(name, properties, options);
     } else {
       throw new Error('You called Amplitude.logEvent before initializing it. Run new Amplitute(key) first.');
     }
   }
 
-  logEventWithTimestamp(name, timestamp, properties = {}) {
+  trackSessionEvents(track) {
+  	if (amplitudeHasInitialized) {
+  	  return RNAmplitudeSDK.trackSessionEvents(track);
+  	} else {
+  	  throw new Error('You called Amplitude.trackSessionEvents before initializing it. Run new Amplitute(key) first.');
+  	}
+  }
+
+  setTrackingOptions(trackingOptions) {
     if (amplitudeHasInitialized) {
-      var eventName = this.evPrefix ? this.evPrefix + name : name;
-      return RNAmplitudeSDK.logEventWithTimestamp(eventName, timestamp, properties);
+      return RNAmplitudeSDK.setTrackingOptions(trackingOptions);
     } else {
-      throw new Error(
-        'You called Amplitude.logEvent before initializing it. Run new Amplitute(key) first.'
-      );
+      throw new Error('You called Amplitude.setTrackingOptions before initializing it. Run new Amplitute(key) first.');
     }
   }
 
   // --------------------------------------------------
   // Revenue
   // --------------------------------------------------
-  logRevenue(productIdentifier, quantity, amount, receipt) {
+  logRevenue({
+  	productIdentifier, quantity, price, revenueType,
+  	receipt, receiptSignature, eventProperties
+  }) {
     if (amplitudeHasInitialized) {
       if (Platform.OS === 'ios') {
-        return RNAmplitudeSDK.logRevenue(productIdentifier, quantity, amount, receipt);
+        return RNAmplitudeSDK.logRevenue(productIdentifier, quantity, price, receipt);
       } else {
-        return RNAmplitudeSDK.logRevenue(productIdentifier, quantity, amount);
+        return RNAmplitudeSDK.logRevenue(productIdentifier, quantity, price, revenueType,
+        	receipt, receiptSignature, eventProperties);
       }
     } else {
       throw new Error('You called Amplitude.logRevenue before initializing it. Run new Amplitute(key) first.');
