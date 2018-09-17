@@ -89,6 +89,10 @@ class Amplitude {
   // Track
   // --------------------------------------------------
   logEvent(name, properties, options) {
+    if(typeof name === 'object') {
+      ({ name, properties, options } = name);
+    }
+
     if (amplitudeHasInitialized) {
       var eventName = this.evPrefix ? this.evPrefix + name : name;
       return RNAmplitudeSDK.logEvent(name, properties, options);
