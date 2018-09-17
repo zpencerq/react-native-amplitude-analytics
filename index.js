@@ -102,11 +102,11 @@ class Amplitude {
   }
 
   trackSessionEvents(track) {
-  	if (amplitudeHasInitialized) {
-  	  return RNAmplitudeSDK.trackSessionEvents(track);
-  	} else {
-  	  throw new Error('You called Amplitude.trackSessionEvents before initializing it. Run new Amplitute(key) first.');
-  	}
+    if (amplitudeHasInitialized) {
+      return RNAmplitudeSDK.trackSessionEvents(track);
+    } else {
+      throw new Error('You called Amplitude.trackSessionEvents before initializing it. Run new Amplitute(key) first.');
+    }
   }
 
   setTrackingOptions(trackingOptions) {
@@ -121,8 +121,8 @@ class Amplitude {
   // Revenue
   // --------------------------------------------------
   logRevenue({
-  	productIdentifier, quantity, price, revenueType,
-  	receipt, receiptSignature, eventProperties
+    productIdentifier, quantity, price, revenueType,
+    receipt, receiptSignature, eventProperties
   }) {
     if (amplitudeHasInitialized) {
       if (Platform.OS === 'ios') {
@@ -130,7 +130,7 @@ class Amplitude {
           receipt, eventProperties);
       } else {
         return RNAmplitudeSDK.logRevenue(productIdentifier, quantity, price, revenueType,
-        	receipt, receiptSignature, eventProperties);
+          receipt, receiptSignature, eventProperties);
       }
     } else {
       throw new Error('You called Amplitude.logRevenue before initializing it. Run new Amplitute(key) first.');
