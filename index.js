@@ -126,7 +126,8 @@ class Amplitude {
   }) {
     if (amplitudeHasInitialized) {
       if (Platform.OS === 'ios') {
-        return RNAmplitudeSDK.logRevenue(productIdentifier, quantity, price, receipt);
+        return RNAmplitudeSDK.logRevenue(productIdentifier, quantity, price, revenueType,
+          receipt, eventProperties);
       } else {
         return RNAmplitudeSDK.logRevenue(productIdentifier, quantity, price, revenueType,
         	receipt, receiptSignature, eventProperties);
