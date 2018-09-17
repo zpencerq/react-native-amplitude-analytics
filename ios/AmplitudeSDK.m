@@ -27,52 +27,52 @@ RCT_EXPORT_METHOD(setTrackingOptions:(NSDictionary *)options)
     AMPTrackingOptions *trackingOptions = [AMPTrackingOptions options];
 
     if ([RNAmplitudeSDK shouldDisable:options withKey:AMP_TRACKING_OPTION_IDFA]) {
-      trackingOptions = [trackingOptions disableIDFA];
+        trackingOptions = [trackingOptions disableIDFA];
     }
     if ([RNAmplitudeSDK shouldDisable:options withKey:AMP_TRACKING_OPTION_IDFV]) {
-      trackingOptions = [trackingOptions disableIDFV];
+        trackingOptions = [trackingOptions disableIDFV];
     }
     if ([RNAmplitudeSDK shouldDisable:options withKey:AMP_TRACKING_OPTION_CARRIER]) {
-      trackingOptions = [trackingOptions disableCarrier];
+        trackingOptions = [trackingOptions disableCarrier];
     }
     if ([RNAmplitudeSDK shouldDisable:options withKey:AMP_TRACKING_OPTION_CITY]) {
-      trackingOptions = [trackingOptions disableCity];
+        trackingOptions = [trackingOptions disableCity];
     }
     if ([RNAmplitudeSDK shouldDisable:options withKey:AMP_TRACKING_OPTION_COUNTRY]) {
-      trackingOptions = [trackingOptions disableCountry];
+        trackingOptions = [trackingOptions disableCountry];
     }
     if ([RNAmplitudeSDK shouldDisable:options withKey:AMP_TRACKING_OPTION_DEVICE_MANUFACTURER]) {
-      trackingOptions = [trackingOptions disableDeviceManufacturer];
+        trackingOptions = [trackingOptions disableDeviceManufacturer];
     }
     if ([RNAmplitudeSDK shouldDisable:options withKey:AMP_TRACKING_OPTION_DEVICE_MODEL]) {
-      trackingOptions = [trackingOptions disableDeviceModel];
+        trackingOptions = [trackingOptions disableDeviceModel];
     }
     if ([RNAmplitudeSDK shouldDisable:options withKey:AMP_TRACKING_OPTION_DMA]) {
-      trackingOptions = [trackingOptions disableDMA];
+        trackingOptions = [trackingOptions disableDMA];
     }
     if ([RNAmplitudeSDK shouldDisable:options withKey:AMP_TRACKING_OPTION_IP_ADDRESS]) {
-      trackingOptions = [trackingOptions disableIPAddress];
+        trackingOptions = [trackingOptions disableIPAddress];
     }
     if ([RNAmplitudeSDK shouldDisable:options withKey:AMP_TRACKING_OPTION_LANGUAGE]) {
-      trackingOptions = [trackingOptions disableLanguage];
+        trackingOptions = [trackingOptions disableLanguage];
     }
     if ([RNAmplitudeSDK shouldDisable:options withKey:AMP_TRACKING_OPTION_LAT_LNG]) {
-      trackingOptions = [trackingOptions disableLatLng];
+        trackingOptions = [trackingOptions disableLatLng];
     }
     if ([RNAmplitudeSDK shouldDisable:options withKey:AMP_TRACKING_OPTION_OS_NAME]) {
-      trackingOptions = [trackingOptions disableOSName];
+        trackingOptions = [trackingOptions disableOSName];
     }
     if ([RNAmplitudeSDK shouldDisable:options withKey:AMP_TRACKING_OPTION_OS_VERSION]) {
-      trackingOptions = [trackingOptions disableOSVersion];
+        trackingOptions = [trackingOptions disableOSVersion];
     }
     if ([RNAmplitudeSDK shouldDisable:options withKey:AMP_TRACKING_OPTION_PLATFORM]) {
-      trackingOptions = [trackingOptions disablePlatform];
+        trackingOptions = [trackingOptions disablePlatform];
     }
     if ([RNAmplitudeSDK shouldDisable:options withKey:AMP_TRACKING_OPTION_REGION]) {
-      trackingOptions = [trackingOptions disableRegion];
+        trackingOptions = [trackingOptions disableRegion];
     }
     if ([RNAmplitudeSDK shouldDisable:options withKey:AMP_TRACKING_OPTION_VERSION_NAME]) {
-      trackingOptions = [trackingOptions disableVersionName];
+        trackingOptions = [trackingOptions disableVersionName];
     }
 
     [[Amplitude instance] setTrackingOptions:trackingOptions];
